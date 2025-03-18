@@ -2,6 +2,7 @@
 #define LED_GREEN_PIN 4
 #define LED_YELLOW_PIN 5
 #define LED_RED_PIN 6
+#define LED_ARD_PIN 13
 
 #define START 7
 #define STOP 8
@@ -13,7 +14,8 @@ void setup() {
   pinMode(LED_GREEN_PIN, OUTPUT);
   pinMode(LED_YELLOW_PIN, OUTPUT);
   pinMode(LED_RED_PIN, OUTPUT);
-  
+  pinMode(LED_ARD_PIN, OUTPUT);
+
   pinMode(START, INPUT);
   pinMode(STOP, INPUT);
   pinMode(NAPREJ, INPUT);
@@ -23,9 +25,10 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(LED_GREEN_PIN, HIGH);
-  digitalWrite(LED_YELLOW_PIN, HIGH);
-  digitalWrite(LED_RED_PIN, HIGH);
+  digitalWrite(LED_GREEN_PIN, !digitalRead(START));
+  digitalWrite(LED_YELLOW_PIN, !digitalRead(STOP));
+  digitalWrite(LED_RED_PIN, !digitalRead(NAPREJ));
+  digitalWrite(LED_ARD_PIN, !digitalRead(NAZAJ));
 
 }
 
